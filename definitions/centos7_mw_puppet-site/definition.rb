@@ -25,10 +25,10 @@ Veewee::Session.declare({
   :sudo_cmd => "echo '%p'|sudo -S sh '%f'",
   :shutdown_cmd => "/usr/sbin/poweroff",
   :postinstall_files => [
+    "yum.sh",
     "base.sh",
     "fix-network.sh",
     "vagrant.sh",
-    "cleanup.sh",
     "virtualbox.sh",
     "puppet.sh",
     "zerodisk.sh"
