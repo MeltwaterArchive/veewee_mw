@@ -26,8 +26,11 @@ Veewee::Session.declare({
   :shutdown_cmd => "/usr/sbin/poweroff",
   :postinstall_files => [
     "base.sh",
+    "fix-network.sh",
     "vagrant.sh",
+    "cleanup.sh",
     "virtualbox.sh",
+    "puppet.sh",
     "zerodisk.sh"
   ],
   :postinstall_timeout => 10000
