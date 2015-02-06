@@ -20,7 +20,8 @@ ln -s /etc/puppet{-site,}/resources
 
 ln -s /etc/puppet{-site,}/manifests/site.pp
 
-echo "*" > /etc/puppet/autosign.conf 
+echo "*
+" > /etc/puppet/autosign.conf 
 
 echo "---
 :backends: yaml
@@ -33,4 +34,18 @@ echo "---
   - "%{::datacenter}"
   - labroles
   - common
-:merge_behavior: deeper" > /etc/hiera.yaml
+:merge_behavior: deeper
+" > /etc/hiera.yaml
+
+echo "[main]
+    logdir = /var/log/puppet
+    rundir = /var/run/puppet
+    ssldir = $vardir/ssl
+    certname = vagrant-centos7-mw.meltwater.com
+
+[agent]
+    classfile = $vardir/classes.txt
+    order = manifest
+    server = vagrant-centos7-mw.meltwater.com
+    localconfig = $vardir/localconfig
+" > /etc/puppet.conf
